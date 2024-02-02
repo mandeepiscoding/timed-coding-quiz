@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Coding Quiz</title>
+</head>
+<body>
+    <div id="quiz-container">
+        <div id="quiz-header">
+            <h1>Coding Quiz</h1>
+            <button id="start-btn">Start</button>
+        </div>
+        <div id="question-container" class="hide">
+            <p id="question-text"></p>
+            <div id="options-container" class="options"></div>
+        </div>
+        <div id="result-container" class="hide">
+            <p id="result-text"></p>
+        </div>
+        <div id="score-container" class="hide">
+            <p>Your Score: <span id="score"></span></p>
+            <label for="initials">Enter Initials:</label>
+            <input type="text" id="initials" />
+            <button id="submit-btn">Submit</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
