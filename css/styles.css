@@ -15,6 +15,7 @@ body {
 }
 
 #quiz-header {
+    position: relative;
     text-align: center;
     background-color: #3498db;
     padding: 10px;
@@ -76,4 +77,23 @@ body {
 
 #submit-btn:hover {
     background-color: #27ae60;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #3498db;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#timer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    color: #fff;
 }

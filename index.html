@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Coding Quiz</title>
 </head>
 <body>
     <div id="quiz-container">
         <div id="quiz-header">
             <h1>Coding Quiz</h1>
-            <button id="start-btn">Start</button>
+            <div id="timer">60</div>
+            <button id="start-btn">Start Quiz</button>
+            <button id="restart-btn" class="hide">Restart Quiz</button>
         </div>
         <div id="question-container" class="hide">
             <p id="question-text"></p>
@@ -27,6 +29,15 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <div id="high-scores" class="hide">
+        <h2>High Scores</h2>
+        <ul id="high-scores-list"></ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Coding Quiz. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

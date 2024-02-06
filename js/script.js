@@ -1,11 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     const startBtn = document.getElementById("start-btn");
+    const restartBtn = document.getElementById("restart-btn");
     const questionContainer = document.getElementById("question-container");
     const optionsContainer = document.getElementById("options-container");
     const resultContainer = document.getElementById("result-container");
     const scoreContainer = document.getElementById("score-container");
     const scoreDisplay = document.getElementById("score");
     const submitBtn = document.getElementById("submit-btn");
+    const highScoresContainer = document.getElementById("high-scores");
+    const highScoresList = document.getElementById("high-scores-list");
 
     let currentQuestionIndex = 0;
     let score = 0;
@@ -17,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
             options: ["<javascript>", "<js>", "<script>", "<scripting>"],
             correctAnswer: "<script>"
         },
-        // Add more questions here in the same format
         {
             question: "What does CSS stand for?",
             options: ["Cascading Style Sheets", "Creative Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
@@ -31,15 +33,20 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     startBtn.addEventListener("click", startQuiz);
+    restartBtn.addEventListener("click", startQuiz);
     submitBtn.addEventListener("click", saveScore);
 
     function startQuiz() {
+        restartBtn.classList.add("hide");
+        highScoresContainer.classList.add("hide");
         startBtn.classList.add("hide");
         questionContainer.classList.remove("hide");
+        resultContainer.classList.add("hide");
+        scoreContainer.classList.add("hide");
+        currentQuestionIndex = 0;
+        score = 0;
         displayQuestion();
-        startTimer();
-
-        optionsContainer.addEventListener("click", checkAnswer);
+        startTimer(); // Start the timer when the quiz begins
     }
 
     function displayQuestion() {
@@ -50,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         currentQuestion.options.forEach((option) => {
             const button = document.createElement("button");
             button.innerText = option;
+            button.addEventListener("click", checkAnswer);
             optionsContainer.appendChild(button);
         });
     }
@@ -59,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const correctAnswer = quizQuestions[currentQuestionIndex].correctAnswer;
 
         if (selectedOption === correctAnswer) {
-            score += 1; // Add 1 point for each correct answer
+            score += 1; 
             resultContainer.innerText = "Correct!";
         } else {
             resultContainer.innerText = "Incorrect!";
@@ -75,7 +83,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function startTimer() {
+        let timeLeft = 60; // Set the time limit to 60 seconds
         timer = setInterval(function () {
+            document.getElementById("timer").innerText = timeLeft;
+            timeLeft--;
+            if (timeLeft < 0) {
+                clearInterval(timer);
+                endQuiz(); // End the quiz when time runs out
+            }
         }, 1000);
     }
 
@@ -84,12 +99,43 @@ document.addEventListener("DOMContentLoaded", function () {
         questionContainer.classList.add("hide");
         resultContainer.classList.add("hide");
         scoreContainer.classList.remove("hide");
-        scoreDisplay.innerText = Math.max(score, 0); // Ensure score doesn't go below 0
+        restartBtn.classList.remove("hide");
+        scoreDisplay.innerText = Math.max(score, 0);
+
+        // Show high scores
+        showHighScores();
     }
 
     function saveScore() {
         const initials = document.getElementById("initials").value;
-        // Save the score and initials as needed (e.g., to local storage or server)
-        // Implement your own logic for saving scores
+        const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+        const newScore = {
+            initials: initials,
+            score: score
+        };
+
+        highScores.push(newScore);
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+
+        // Show high scores
+        showHighScores();
+    }
+
+    function showHighScores() {
+        const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+        highScores.sort((a, b) => b.score - a.score);
+
+        highScoresList.innerHTML = "";
+
+        highScores.forEach((score, index) => {
+            if (index < 5) { // Display top 5 high scores
+                const listItem = document.createElement("li");
+                listItem.textContent = `${score.initials}: ${score.score}`;
+                highScoresList.appendChild(listItem);
+            }
+        });
+
+        highScoresContainer.classList.remove("hide");
     }
 });
