@@ -1,43 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>Coding Quiz</title>
 </head>
+
 <body>
+    
+    <!-- Quiz Container -->
     <div id="quiz-container">
+        
+        <!-- Quiz Header -->
         <div id="quiz-header">
             <h1>Coding Quiz</h1>
-            <div id="timer">60</div>
-            <button id="start-btn">Start Quiz</button>
-            <button id="restart-btn" class="hide">Restart Quiz</button>
+            <div id="timer">60</div> <!-- Displays Timer -->
+            <button id="start-btn">Start Quiz</button> <!-- Start Quiz Button -->
+            <button id="restart-btn" class="hide">Restart Quiz</button> <!-- Restart Quiz Button (shows when quiz ends) -->
         </div>
+
+        <!-- Question Container -->
         <div id="question-container" class="hide">
             <p id="question-text"></p>
             <div id="options-container" class="options"></div>
+            <p id="answer-feedback" class="hide"></p> <!-- Shows when the answer is wrong -->
         </div>
+
+        <!-- Result Container -->
         <div id="result-container" class="hide">
             <p id="result-text"></p>
         </div>
+
+        <!-- Score Container -->
         <div id="score-container" class="hide">
-            <p>Your Score: <span id="score"></span></p>
+            <p>Your Score: <span id="score"></span></p> <!-- Displays scores -->
             <label for="initials">Enter Initials:</label>
             <input type="text" id="initials" />
-            <button id="submit-btn">Submit</button>
+            <button id="submit-btn">Submit</button> <!-- Submit Button -->
         </div>
+
     </div>
 
+    <!-- High Scores Container -->
     <div id="high-scores" class="hide">
         <h2>High Scores</h2>
         <ul id="high-scores-list"></ul>
     </div>
 
+    <!-- Copyright -->
     <footer>
         <p>&copy; 2024 Coding Quiz. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript -->
     <script src="js/script.js"></script>
 </body>
+
 </html>

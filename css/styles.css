@@ -1,3 +1,4 @@
+/* Body Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -5,6 +6,7 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Quiz Container Styles */
 #quiz-container {
     max-width: 600px;
     margin: 20px auto;
@@ -14,6 +16,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/*  Quiz Header Styles */
 #quiz-header {
     position: relative;
     text-align: center;
@@ -23,6 +26,7 @@ body {
     color: #fff;
 }
 
+/* Start Button Styles */
 #start-btn {
     padding: 10px 20px;
     font-size: 16px;
@@ -33,6 +37,7 @@ body {
     border-radius: 5px;
 }
 
+/* Quesiton Container Styles */
 #question-container {
     margin-top: 20px;
     background-color: #ecf0f1;
@@ -40,6 +45,7 @@ body {
     border-radius: 5px;
 }
 
+/*  Options Button Styles */
 .options button {
     background-color: #3498db;
     color: #fff;
@@ -50,10 +56,12 @@ body {
     cursor: pointer;
 }
 
+/* Options Button Hover Styles */
 .options button:hover {
     background-color: #2980b9;
 }
 
+/* Result Container and Score Container Styles */
 #result-container, #score-container {
     margin-top: 20px;
     background-color: #ecf0f1;
@@ -61,10 +69,19 @@ body {
     border-radius: 5px;
 }
 
+/* Answer Feedback Styles */
+#answer-feedback {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Hide Class Styles */
 .hide {
     display: none;
 }
 
+/* Submit Button Styles */
 #submit-btn {
     background-color: #2ecc71;
     color: #fff;
@@ -75,10 +92,12 @@ body {
     margin-top: 10px;
 }
 
+/* Submit Button Hover Styles */
 #submit-btn:hover {
     background-color: #27ae60;
 }
 
+/* Footer Styles */
 footer {
     text-align: center;
     margin-top: 20px;
@@ -90,6 +109,7 @@ footer {
     width: 100%;
 }
 
+/* Timer Display Styles */
 #timer {
     position: absolute;
     top: 10px;
