@@ -17,6 +17,17 @@ document.addEventListener("DOMContentLoaded", function () {
             options: ["<javascript>", "<js>", "<script>", "<scripting>"],
             correctAnswer: "<script>"
         },
+        // Add more questions here in the same format
+        {
+            question: "What does CSS stand for?",
+            options: ["Cascading Style Sheets", "Creative Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
+            correctAnswer: "Cascading Style Sheets"
+        },
+        {
+            question: "What does HTML stand for?",
+            options: ["Hypertext Markup Language", "Hyperlinks and Text Markup Language", "Home Tool Markup Language", "Hypertext Machine Language"],
+            correctAnswer: "Hypertext Markup Language"
+        }
     ];
 
     startBtn.addEventListener("click", startQuiz);
@@ -48,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const correctAnswer = quizQuestions[currentQuestionIndex].correctAnswer;
 
         if (selectedOption === correctAnswer) {
-            score += 10;
+            score += 1; // Add 1 point for each correct answer
             resultContainer.innerText = "Correct!";
         } else {
             resultContainer.innerText = "Incorrect!";
@@ -73,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
         questionContainer.classList.add("hide");
         resultContainer.classList.add("hide");
         scoreContainer.classList.remove("hide");
-        scoreDisplay.innerText = score;
+        scoreDisplay.innerText = Math.max(score, 0); // Ensure score doesn't go below 0
     }
 
     function saveScore() {
