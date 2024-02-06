@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
             options: ["<javascript>", "<js>", "<script>", "<scripting>"],
             correctAnswer: "<script>"
         },
-        // Add more questions as needed
     ];
 
     startBtn.addEventListener("click", startQuiz);
@@ -53,9 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
             resultContainer.innerText = "Correct!";
         } else {
             resultContainer.innerText = "Incorrect!";
-            // Subtract time for incorrect answer (adjust time as needed)
-            // For example, you can subtract 10 seconds for each incorrect answer
-            // Modify the timer as per your requirements
         }
 
         currentQuestionIndex++;
@@ -68,11 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function startTimer() {
-        // Implement timer logic as needed
-        // For example, you can set a countdown timer from a specific duration
         timer = setInterval(function () {
-            // Update timer display or handle timer logic
-            // If the timer reaches 0, call endQuiz()
         }, 1000);
     }
 
