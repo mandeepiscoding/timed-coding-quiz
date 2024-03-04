@@ -6,6 +6,22 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Add styles for high scores link */
+#high-scores-link-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#high-scores-link {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#high-scores-link:hover {
+    text-decoration: underline;
+}
+
 /* Quiz Container Styles */
 #quiz-container {
     max-width: 600px;

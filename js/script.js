@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const highScoresContainer = document.getElementById("high-scores");
     const highScoresList = document.getElementById("high-scores-list");
     const timerDisplay = document.getElementById("timer");
+    const highScoresLink = document.getElementById("high-scores-link");
+    const backButton = document.createElement("button");
+    backButton.innerText = "Go Back";
+    backButton.classList.add("hide");
+    highScoresLink.insertAdjacentElement("afterend", backButton);
 
     // Variables
     let currentQuestionIndex = 0;
@@ -40,6 +45,29 @@ document.addEventListener("DOMContentLoaded", function () {
     startBtn.addEventListener("click", startQuiz);
     restartBtn.addEventListener("click", startQuiz);
     submitBtn.addEventListener("click", saveScore);
+
+    highScoresLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        startBtn.classList.add("hide");
+        highScoresLink.classList.add("hide");
+        backButton.classList.remove("hide");
+        highScoresContainer.classList.remove("hide");
+        questionContainer.classList.add("hide");
+        resultContainer.classList.add("hide");
+        scoreContainer.classList.add("hide");
+        restartBtn.classList.add("hide");
+        clearInterval(timer); // Reset timer
+        timerDisplay.innerText = 60; // Reset timer display
+    });
+
+    backButton.addEventListener("click", function () {
+        highScoresLink.classList.remove("hide");
+        backButton.classList.add("hide");
+        startBtn.classList.remove("hide");
+        highScoresContainer.classList.add("hide");
+        clearInterval(timer); // Reset timer
+        timerDisplay.innerText = 60; // Reset timer display
+    });
 
     // Start quiz function
     function startQuiz() {
